@@ -1,67 +1,70 @@
 /* ==========================================
-   موعد حفل الخطوبة
+موعد حفل الخطوبة
 
-   14 أكتوبر 2026
-   الساعة 4:00 عصرا
-   بتوقيت العراق +03:00
+14 أكتوبر 2026
+الساعة 4:00 عصرا
+بتوقيت العراق +03:00
 ========================================== */
 
 const engagementDate =
-  new Date(
-    "2026-10-14T16:00:00+03:00"
-  ).getTime();
+new Date(
+  "2026-10-14T16:00:00+03:00"
+).getTime();
 
 
 
 /* ==========================================
-   العناصر
+العناصر
 ========================================== */
 
 const bgMusic =
-  document.getElementById(
-    "bgMusic"
-  );
-
+document.getElementById(
+  "bgMusic"
+);
 
 const musicToggle =
-  document.getElementById(
-    "musicToggle"
-  );
-
+document.getElementById(
+  "musicToggle"
+);
 
 const musicIcon =
-  document.getElementById(
-    "musicIcon"
-  );
+document.getElementById(
+  "musicIcon"
+);
+
+
+/* زر الموسيقى بالكامل */
+
+const musicControl =
+document.querySelector(
+  ".music-control"
+);
 
 
 const envelopeSection =
-  document.getElementById(
-    "envelopeSection"
-  );
-
+document.getElementById(
+  "envelopeSection"
+);
 
 const envelopeElement =
-  document.getElementById(
-    "envelopeElement"
-  );
-
+document.getElementById(
+  "envelopeElement"
+);
 
 const envelopeClickable =
-  document.getElementById(
-    "envelopeClickable"
-  );
-
+document.getElementById(
+  "envelopeClickable"
+);
 
 const inviteContent =
-  document.getElementById(
-    "inviteContent"
-  );
+document.getElementById(
+  "inviteContent"
+);
 
 
 
 /* ==========================================
-   الحالة
+الحالة
 ========================================== */
 
 let invitationOpened = false;
@@ -73,7 +76,7 @@ let countdownInterval = null;
 
 
 /* ==========================================
-   مستوى صوت الموسيقى
+مستوى صوت الموسيقى
 ========================================== */
 
 bgMusic.volume = 0.7;
@@ -81,7 +84,7 @@ bgMusic.volume = 0.7;
 
 
 /* ==========================================
-   تغيير أيقونة الصوت
+تغيير أيقونة الصوت
 ========================================== */
 
 function updateMusicIcon() {
@@ -92,7 +95,6 @@ function updateMusicIcon() {
       "fa-volume-high"
     );
 
-
     musicIcon.classList.add(
       "fa-volume-xmark"
     );
@@ -102,7 +104,6 @@ function updateMusicIcon() {
     musicIcon.classList.remove(
       "fa-volume-xmark"
     );
-
 
     musicIcon.classList.add(
       "fa-volume-high"
@@ -115,7 +116,7 @@ function updateMusicIcon() {
 
 
 /* ==========================================
-   تشغيل / إيقاف الموسيقى
+تشغيل / إيقاف الموسيقى
 ========================================== */
 
 function toggleAudio() {
@@ -159,7 +160,7 @@ musicToggle.addEventListener(
 
 
 /* ==========================================
-   فتح الدعوة
+فتح الدعوة
 ========================================== */
 
 function openInvitation() {
@@ -168,8 +169,18 @@ function openInvitation() {
     return;
   }
 
-
   invitationOpened = true;
+
+
+
+  /* ==========================================
+     إظهار زر الموسيقى
+     لا يظهر إلا بعد فتح الدعوة
+  ========================================== */
+
+  musicControl.classList.add(
+    "visible"
+  );
 
 
 
@@ -244,7 +255,6 @@ function openInvitation() {
     envelopeSection.style.opacity =
       "0";
 
-
     envelopeSection.style.transform =
       "translateY(-20px)";
 
@@ -258,7 +268,6 @@ function openInvitation() {
 
     envelopeSection.style.display =
       "none";
-
 
     inviteContent.style.display =
       "flex";
@@ -319,14 +328,13 @@ envelopeClickable.addEventListener(
 
 
 /* ==========================================
-   تحديث العداد
+تحديث العداد
 ========================================== */
 
 function updateCountdown() {
 
   const now =
     new Date().getTime();
-
 
   const distance =
     engagementDate - now;
@@ -544,7 +552,7 @@ function updateCountdown() {
 
 
 /* ==========================================
-   التفريحات عند موعد الحفل
+التفريحات عند موعد الحفل
 ========================================== */
 
 function startMainCelebration() {
@@ -717,17 +725,16 @@ function startMainCelebration() {
 
 
 /* ==========================================
-   تشغيل العداد
+تشغيل العداد
 ========================================== */
 
 updateCountdown();
 
-
 countdownInterval =
-  setInterval(
+setInterval(
 
-    updateCountdown,
+  updateCountdown,
 
-    1000
+  1000
 
-  );
+);
