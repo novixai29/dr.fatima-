@@ -121,8 +121,29 @@ button {
   );
 
   z-index: 100;
+
+  /* مخفي قبل فتح الدعوة */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translateY(-10px);
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    visibility 0.4s ease;
 }
 
+
+/* يظهر بعد فتح الدعوة */
+.music-control.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transform: translateY(0);
+}
 
 .music-button {
   width: 46px;
