@@ -110,6 +110,11 @@ button {
    زر الموسيقى
 ========================================= */
 
+/* ==========================================
+   زر الموسيقى
+   مخفي قبل فتح الدعوة
+========================================== */
+
 .music-control {
   position: fixed;
 
@@ -122,9 +127,11 @@ button {
 
   z-index: 100;
 
-  /* مخفي قبل فتح الدعوة */
+  /* مخفي بالبداية */
   opacity: 0;
+
   visibility: hidden;
+
   pointer-events: none;
 
   transform: translateY(-10px);
@@ -136,70 +143,18 @@ button {
 }
 
 
-/* يظهر بعد فتح الدعوة */
+/* ==========================================
+   يظهر بعد فتح الدعوة
+========================================== */
+
 .music-control.visible {
   opacity: 1;
+
   visibility: visible;
+
   pointer-events: auto;
 
   transform: translateY(0);
-}
-
-.music-button {
-  width: 46px;
-  height: 46px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  border:
-    1px solid rgba(
-      180,
-      163,
-      140,
-      0.45
-    );
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.87
-    );
-
-  backdrop-filter:
-    blur(12px);
-
-  color:
-    var(--brown-soft);
-
-  cursor: pointer;
-
-  box-shadow:
-    0 6px 18px
-    rgba(0, 0, 0, 0.12);
-
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease;
-}
-
-
-.music-button:hover {
-  transform: scale(1.06);
-
-  background:
-    #ffffff;
-}
-
-
-.music-button:active {
-  transform: scale(0.95);
 }
 
 
