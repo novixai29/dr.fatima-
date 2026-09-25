@@ -3,32 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>دعوة زفاف حسين و جنى 💍</title>
+  <title>دعوة حفل خطوبة | يوسف & أميرة 💍</title>
 
-  <!-- وسوم المعاينة عند الإرسال على واتساب، إنستغرام، وفيسبوك -->
-  <meta property="og:title" content="دعوة زفاف حسين و جنى 💍" />
-  <meta property="og:description" content="يسرنا دعوتكم لمشاركتنا فرحتنا الكبرى.. اضغط لفتح بطاقة الدعوة" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" />
+  <!-- وسوم المعاينة عند إرسال الرابط عبر واتساب، إنستغرام، وفيسبوك -->
+  <meta property="og:title" content="دعوة حفل خطوبة | يوسف & أميرة 💍" />
+  <meta property="og:description" content="يسعدنا ويشرفنا دعوتكم لمشاركتنا فرحة حفل خطوبتنا.. اضغط لفتح الدعوة" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" />
   <meta property="og:type" content="website" />
 
-  <!-- خطوط عربية ولاتينية أنيقة -->
+  <!-- خطوط عربية فاخرة -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cairo:wght@300;400;600;700&family=Marcellus&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Marcellus&display=swap" rel="stylesheet">
 
-  <!-- مكتبة القصاصات الاحتفالية (Confetti) -->
+  <!-- مكتبة القصاصات الاحتفالية -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <style>
     :root {
-      --bg-cream: #fbf9f5;
-      --card-bg: #ffffff;
-      --primary-gold: #c29d59;
-      --gold-dark: #9a7632;
-      --wax-red: #7a1f28;
-      --wax-border: #521319;
-      --text-dark: #2b2b2b;
-      --text-muted: #6e6a65;
+      --burgundy-deep: #3d0e14;
+      --burgundy-card: #2e090e;
+      --burgundy-light: #52161e;
+      --gold-accent: #e5c07b;
+      --gold-text: #f3e5c8;
+      --text-muted: #d8c2be;
+      --cream-bg: #f9f5f0;
     }
 
     * {
@@ -39,553 +38,529 @@
     }
 
     body {
-      background-color: var(--bg-cream);
-      font-family: 'Cairo', sans-serif;
-      color: var(--text-dark);
-      overflow-x: hidden;
+      background-color: #1a0407;
+      font-family: 'Amiri', serif;
+      color: var(--gold-text);
       min-height: 100vh;
       display: flex;
       justify-content: center;
+      overflow-x: hidden;
     }
 
-    .app-container {
+    .mobile-frame {
       width: 100%;
-      max-width: 480px;
+      max-width: 440px;
       min-height: 100vh;
-      background: #fdfcf9;
-      box-shadow: 0 0 40px rgba(0,0,0,0.06);
+      background: var(--burgundy-deep);
       position: relative;
       display: flex;
       flex-direction: column;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.7);
     }
 
     /* زر الموسيقى العائم */
-    .audio-control {
+    .audio-btn {
       position: fixed;
-      top: 18px;
-      left: 18px;
+      top: 20px;
+      left: 20px;
       z-index: 100;
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid var(--primary-gold);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      background: rgba(61, 14, 20, 0.85);
+      border: 1px solid var(--gold-accent);
+      color: var(--gold-accent);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      font-size: 1.1rem;
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s ease;
     }
-    .audio-control.playing {
-      animation: spinSlow 6s linear infinite;
+    .audio-btn.rotating {
+      animation: spin 6s linear infinite;
     }
-    @keyframes spinSlow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
     }
 
-    /* شاشة الظرف الأولى */
-    .hero-envelope-screen {
+    /* الواجهة الأولى: الظرف العنابي */
+    .envelope-screen {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 25px;
-      text-align: center;
-      background: radial-gradient(circle at center, #ffffff 0%, #f6f2ea 100%);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .names-header {
-      font-family: 'Alex Brush', cursive;
-      font-size: 3.5rem;
-      color: var(--gold-dark);
-      line-height: 1.1;
-      margin-bottom: 8px;
-      direction: ltr;
-    }
-
-    .sub-title {
-      font-family: 'Marcellus', serif;
-      letter-spacing: 3px;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-bottom: 35px;
-      text-transform: uppercase;
-    }
-
-    /* تصميم الظرف */
-    .envelope-box {
-      width: 290px;
-      height: 195px;
-      background: #eee8df;
       position: relative;
-      border-radius: 6px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+      background: linear-gradient(180deg, #4d131b 0%, #2b080d 100%);
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      perspective: 1000px;
+      overflow: hidden;
+      padding: 20px;
     }
 
-    /* ورق الشجر والزينة خلف الظرف */
-    .envelope-leaves {
-      position: absolute;
-      top: -25px;
-      right: -25px;
-      font-size: 3.2rem;
-      opacity: 0.75;
-      pointer-events: none;
-      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.08));
-    }
-    .envelope-leaves-left {
-      position: absolute;
-      bottom: -20px;
-      left: -20px;
-      font-size: 2.8rem;
-      opacity: 0.75;
-      pointer-events: none;
-      transform: rotate(180deg);
-    }
-
-    .envelope-flap {
+    /* طيات الظرف */
+    .envelope-top-flap {
       position: absolute;
       top: 0;
       left: 0;
-      width: 0;
-      height: 0;
-      border-left: 145px solid transparent;
-      border-right: 145px solid transparent;
-      border-top: 110px solid #e2dacd;
+      width: 100%;
+      height: 48%;
+      background: linear-gradient(180deg, #441017 0%, #340a0f 100%);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
       transform-origin: top center;
-      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
       z-index: 5;
     }
 
-    .envelope-box.opened .envelope-flap {
+    .envelope-screen.opened .envelope-top-flap {
       transform: rotateX(180deg);
       z-index: 1;
     }
 
-    .wax-seal {
+    .envelope-bottom-flap {
       position: absolute;
-      top: 90px;
-      width: 54px;
-      height: 54px;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 54%;
+      background: linear-gradient(0deg, #30090e 0%, #3e0e14 100%);
+      clip-path: polygon(0 100%, 100% 100%, 50% 0);
+      z-index: 4;
+    }
+
+    /* نقوش جانبية ناعمة */
+    .side-pattern-left, .side-pattern-right {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 50%;
+      pointer-events: none;
+      opacity: 0.15;
+      font-size: 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      filter: drop-shadow(0 0 4px #000);
+      z-index: 3;
+    }
+    .side-pattern-left { left: 10px; align-items: flex-start; }
+    .side-pattern-right { right: 10px; align-items: flex-end; }
+
+    /* الختم الشمعي */
+    .wax-seal {
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
-      background: radial-gradient(circle at 35% 35%, #9e2b36, var(--wax-red));
-      box-shadow: 0 5px 15px rgba(122, 31, 40, 0.45), inset 0 0 0 2px var(--wax-border);
+      background: radial-gradient(circle at 35% 35%, #7e242f, #420f15);
+      border: 3px solid #58161e;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 12px rgba(0, 0, 0, 0.6);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #dfba73;
-      font-family: 'Alex Brush', cursive;
-      font-size: 1.8rem;
+      position: relative;
       z-index: 10;
-      transition: transform 0.4s ease, opacity 0.4s ease;
+      transition: transform 0.3s ease;
+    }
+    .wax-seal:hover {
+      transform: scale(1.05);
+    }
+    .wax-seal svg {
+      width: 45px;
+      height: 45px;
+      fill: var(--gold-accent);
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.5));
     }
 
-    .envelope-box:hover .wax-seal {
-      transform: scale(1.06);
+    .open-prompt {
+      position: absolute;
+      bottom: 60px;
+      font-size: 1.15rem;
+      color: var(--gold-accent);
+      letter-spacing: 1px;
+      z-index: 10;
+      animation: pulse 1.8s infinite;
+      font-family: 'Amiri', serif;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; transform: scale(0.97); }
+      50% { opacity: 1; transform: scale(1.03); }
     }
 
-    .tap-hint {
-      margin-top: 30px;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      animation: pulseText 1.8s infinite;
-    }
-
-    @keyframes pulseText {
-      0%, 100% { opacity: 0.5; transform: scale(0.98); }
-      50% { opacity: 1; transform: scale(1.02); }
-    }
-
-    /* تفاصيل بطاقة الزفاف بعد الفتح */
-    .wedding-body {
+    /* واجهة محتوى الدعوة */
+    .details-screen {
       display: none;
       opacity: 0;
-      padding: 30px 20px 60px;
-      transition: opacity 1s ease;
+      padding: 35px 20px 50px;
+      transition: opacity 0.8s ease;
+      background: linear-gradient(180deg, #3d0e14 0%, #200508 100%);
     }
-
-    .wedding-body.visible {
+    .details-screen.visible {
       display: block;
       opacity: 1;
     }
 
-    /* كولاج الصور البولارويد */
-    .photo-grid {
+    /* كارت تفاصيل الحفل المطابق للنمط */
+    .invitation-card {
+      background: var(--burgundy-card);
+      border: 1px solid rgba(229, 192, 123, 0.25);
+      border-radius: 28px;
+      padding: 35px 20px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-title {
+      font-family: 'Aref Ruqaa', serif;
+      font-size: 2rem;
+      color: var(--gold-accent);
+      margin-bottom: 25px;
+    }
+
+    /* شبكة أسماء الأهل */
+    .family-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 15px;
-      margin: 30px 0;
-      padding: 10px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid rgba(229, 192, 123, 0.15);
+      padding-bottom: 20px;
     }
-
-    .polaroid-card {
-      background: white;
-      padding: 10px 10px 20px 10px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      border-radius: 4px;
-      position: relative;
-      transition: transform 0.3s ease;
+    .family-column {
+      font-size: 0.95rem;
+      line-height: 1.8;
     }
-    .polaroid-card:hover {
-      transform: scale(1.03) !important;
-      z-index: 10;
-    }
-    .polaroid-card.t-left { transform: rotate(-4deg); }
-    .polaroid-card.t-right { transform: rotate(4deg); margin-top: 15px; }
-
-    .polaroid-card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 2px;
-      filter: saturate(0.9);
-    }
-    .polaroid-label {
-      font-family: 'Alex Brush', cursive;
+    .family-header {
+      font-family: 'Aref Ruqaa', serif;
       font-size: 1.25rem;
-      text-align: center;
-      margin-top: 8px;
-      color: var(--gold-dark);
-      direction: ltr;
+      color: var(--gold-accent);
+      margin-bottom: 6px;
+    }
+    .family-name {
+      color: var(--text-muted);
+      font-size: 1rem;
     }
 
-    /* كارت العداد التنازلي */
-    .countdown-section {
-      background: linear-gradient(145deg, #ffffff, #faf7f2);
-      border: 1px solid #ebdcc5;
-      border-radius: 16px;
-      padding: 24px 15px;
-      margin: 35px 0;
-      text-align: center;
-      box-shadow: 0 12px 30px rgba(194, 157, 89, 0.1);
+    .couple-title {
+      font-size: 1.2rem;
+      color: var(--gold-accent);
+      font-weight: bold;
+      margin-bottom: 12px;
     }
-    .countdown-title {
-      font-family: 'Marcellus', serif;
+
+    .invitation-body-text {
+      font-size: 1.05rem;
+      color: #ede2db;
+      line-height: 1.9;
+      margin-bottom: 25px;
+      padding: 0 10px;
+    }
+
+    /* موعد ومكان الحفل المنسق */
+    .date-badge {
+      background: rgba(229, 192, 123, 0.08);
+      border: 1px solid rgba(229, 192, 123, 0.2);
+      border-radius: 14px;
+      padding: 15px 10px;
+      margin: 20px 0;
       font-size: 1.15rem;
-      color: var(--gold-dark);
-      letter-spacing: 2px;
-      margin-bottom: 18px;
-      text-transform: uppercase;
+      color: var(--gold-accent);
+      line-height: 1.8;
     }
-    .timer-units {
+
+    .venue-name {
+      font-size: 1.2rem;
+      color: #ffffff;
+      margin: 15px 0 25px;
+      letter-spacing: 0.5px;
+    }
+
+    /* أسماء العريسين في الأسفل */
+    .names-footer {
+      margin-top: 30px;
+      border-top: 1px solid rgba(229, 192, 123, 0.15);
+      padding-top: 25px;
+    }
+    .person-block {
+      margin: 10px 0;
+    }
+    .person-name {
+      font-family: 'Aref Ruqaa', serif;
+      font-size: 2.2rem;
+      color: var(--gold-accent);
+    }
+    .person-role {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: -4px;
+    }
+    .ampersand {
+      font-family: 'Aref Ruqaa', serif;
+      font-size: 1.8rem;
+      color: var(--gold-accent);
+      margin: 6px 0;
+    }
+
+    /* العداد التنازلي المطور */
+    .timer-container {
+      margin: 30px 0 25px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(229, 192, 123, 0.2);
+      border-radius: 18px;
+      padding: 20px 10px;
+    }
+    .timer-header {
+      font-size: 1.1rem;
+      color: var(--gold-accent);
+      margin-bottom: 15px;
+      font-family: 'Aref Ruqaa', serif;
+    }
+    .timer-grid {
       display: flex;
       justify-content: space-around;
       direction: ltr;
     }
-    .timer-box {
+    .time-unit {
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-width: 60px;
     }
-    .timer-number {
+    .unit-value {
       font-family: 'Marcellus', serif;
-      font-size: 2.2rem;
+      font-size: 1.9rem;
       font-weight: 700;
-      color: var(--text-dark);
-      line-height: 1;
+      color: #fff;
     }
-    .timer-label {
+    .unit-text {
       font-size: 0.75rem;
-      letter-spacing: 1px;
       color: var(--text-muted);
-      margin-top: 6px;
-      text-transform: uppercase;
+      margin-top: 4px;
     }
 
-    /* بطاقة تفاصيل الحفل والموقع */
-    .details-card {
-      background: white;
-      border-radius: 16px;
-      padding: 30px 20px;
-      margin-bottom: 30px;
-      text-align: center;
-      border: 1px solid #eee;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.04);
-    }
-    .details-heading {
-      font-family: 'Alex Brush', cursive;
-      font-size: 3rem;
-      color: var(--gold-dark);
-      margin-bottom: 20px;
-      direction: ltr;
-    }
-    .detail-item {
-      margin-bottom: 18px;
-      font-size: 1rem;
-      color: var(--text-dark);
-    }
-    .detail-item span {
-      display: block;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 3px;
-    }
-
-    .btn-action {
-      display: inline-flex;
+    /* زر الموقع على خرائط جوجل */
+    .maps-btn {
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       width: 100%;
-      background: var(--primary-gold);
-      color: white;
+      background: linear-gradient(135deg, #e5c07b 0%, #b88f43 100%);
+      color: #2b080d;
       text-decoration: none;
-      padding: 13px 20px;
+      padding: 14px 20px;
       border-radius: 30px;
-      font-weight: 600;
-      margin-top: 10px;
-      box-shadow: 0 6px 18px rgba(194, 157, 89, 0.35);
-      border: none;
-      cursor: pointer;
-      font-family: 'Cairo', sans-serif;
-      transition: background 0.3s;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 6px 20px rgba(229, 192, 123, 0.3);
+      transition: transform 0.2s ease;
+      margin-top: 15px;
     }
-    .btn-action:hover {
-      background: var(--gold-dark);
-    }
-
-    /* تأكيد الحضور RSVP */
-    .rsvp-box {
-      background: #fdfaf6;
-      border: 1px dashed var(--primary-gold);
-      border-radius: 16px;
-      padding: 25px 20px;
-      text-align: center;
-      margin-bottom: 25px;
-    }
-    .rsvp-box h3 {
-      color: var(--gold-dark);
-      margin-bottom: 10px;
-    }
-    .rsvp-box input, .rsvp-box select {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-family: 'Cairo', sans-serif;
-    }
-    .rsvp-box input:focus, .rsvp-box select:focus {
-      outline: none;
-      border-color: var(--primary-gold);
-    }
-
-    .footer-quote {
-      text-align: center;
-      font-family: 'Alex Brush', cursive;
-      font-size: 2.2rem;
-      color: var(--gold-dark);
-      margin: 30px 0 10px;
-      direction: ltr;
+    .maps-btn:hover {
+      transform: translateY(-2px);
     }
   </style>
 </head>
 <body>
 
-  <!-- مسار ملف الصوت والموسيقى -->
-  <!-- يمكنك تغيير الرابط في src إلى أي رابط صوتي خارجي أو ملف محلي مثل music.mp3 -->
-  <audio id="weddingMusic" loop preload="auto">
-    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-wedding-113548.mp3" type="audio/mp3">
+  <!-- مسار ملف الموسيقى (ضع ملف music.mp3 في نفس المجلد) -->
+  <audio id="engagementMusic" loop preload="auto">
+    <source src="music.mp3" type="audio/mp3">
   </audio>
 
-  <div class="app-container">
+  <div class="mobile-frame">
 
     <!-- زر التحكم بالصوت -->
-    <div class="audio-control" id="audioBtn" title="تشغيل / كتم الصوت">
+    <div class="audio-btn" id="audioToggle" title="تشغيل / كتم الصوت">
       🎵
     </div>
 
-    <!-- شاشة الظرف الابتدائية -->
-    <div class="hero-envelope-screen" id="envelopeScreen">
-      <div class="names-header">Hussein & Jana</div>
-      <div class="sub-title">يسرنا دعوتكم لحفل زفافنا</div>
+    <!-- شاشة الظرف الأولى (محاكاة الصورة الثانية) -->
+    <div class="envelope-screen" id="envelopeScreen">
+      <div class="envelope-top-flap"></div>
+      <div class="envelope-bottom-flap"></div>
 
-      <div class="envelope-box" id="envelopeTrigger">
-        <span class="envelope-leaves">🌿</span>
-        <span class="envelope-leaves-left">🌸</span>
-        <div class="envelope-flap"></div>
-        <div class="wax-seal">H&J</div>
+      <div class="side-pattern-left">
+        <span>🌿</span>
+        <span>🌸</span>
+        <span>🌿</span>
+      </div>
+      <div class="side-pattern-right">
+        <span>🌿</span>
+        <span>🌸</span>
+        <span>🌿</span>
       </div>
 
-      <div class="tap-hint">اضغط على الختم لفتح الدعوة 💌</div>
+      <!-- الختم الشمعي مع غصن النبات المذهب -->
+      <div class="wax-seal" id="waxSeal">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2L10.5 5.5L8 3L8.5 7L5 7.5L8 10L6 13L9.5 12.5L10 16L12 13.5L14 16L14.5 12.5L18 13L16 10L19 7.5L15.5 7L16 3L13.5 5.5L12 2Z"/>
+          <line x1="12" y1="2" x2="12" y2="22" stroke="var(--gold-accent)" stroke-width="1.5" />
+        </svg>
+      </div>
+
+      <div class="open-prompt">انقر لفتح الدعوة 💌</div>
     </div>
 
-    <!-- محتوى بطاقة الزفاف بعد فتح الظرف -->
-    <div class="wedding-body" id="weddingDetails">
-      <div class="names-header" style="text-align: center;">Hussein & Jana</div>
-      <p style="text-align: center; color: var(--text-muted); font-size: 0.95rem;">
-        بارك الله لهما وبارك عليهما وجمع بينهما في خير
-      </p>
+    <!-- شاشة تفاصيل الدعوة (محاكاة الصورة الأولى) -->
+    <div class="details-screen" id="detailsScreen">
+      <div class="invitation-card">
+        
+        <h2 class="card-title">معلومات الحفل</h2>
 
-      <!-- معرض الصور المصغرة (بولارويد) -->
-      <div class="photo-grid">
-        <div class="polaroid-card t-left">
-          <!-- غير رابط الصورة أدناه بالصورة التي تريدها -->
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=500&q=80" alt="صورة العروسين" />
-          <div class="polaroid-label">Forever & Always</div>
-        </div>
-        <div class="polaroid-card t-right">
-          <!-- غير رابط الصورة أدناه بالصورة التي تريدها -->
-          <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=500&q=80" alt="خواتم الزفاف" />
-          <div class="polaroid-label">Together</div>
-        </div>
-      </div>
-
-      <!-- العد التنازلي التفاعلي -->
-      <div class="countdown-section">
-        <div class="countdown-title">The Big Day Countdown</div>
-        <div class="timer-units">
-          <div class="timer-box">
-            <span class="timer-number" id="days">00</span>
-            <span class="timer-label">أيام</span>
+        <!-- عائلات العروسين -->
+        <div class="family-grid">
+          <div class="family-column">
+            <div class="family-header">أهل العريس</div>
+            <div class="family-name">اسم والد العريس</div>
+            <div class="family-name">اسم والدة العريس</div>
           </div>
-          <div class="timer-box">
-            <span class="timer-number" id="hours">00</span>
-            <span class="timer-label">ساعات</span>
-          </div>
-          <div class="timer-box">
-            <span class="timer-number" id="minutes">00</span>
-            <span class="timer-label">دقائق</span>
-          </div>
-          <div class="timer-box">
-            <span class="timer-number" id="seconds">00</span>
-            <span class="timer-label">ثواني</span>
+          <div class="family-column">
+            <div class="family-header">أهل العروس</div>
+            <div class="family-name">اسم والد العروس</div>
+            <div class="family-name">اسم والدة العروس</div>
           </div>
         </div>
-      </div>
 
-      <!-- تفاصيل موعد ومكان الحفل -->
-      <div class="details-card">
-        <div class="details-heading">The Details</div>
+        <div class="couple-title">السيد يوسف والآنسة أميرة</div>
 
-        <div class="detail-item">
-          <span>📅 التاريخ واليوم</span>
-          <strong>الجمعة، 16 تشرين الأول (أكتوبر) 2026</strong>
+        <p class="invitation-body-text">
+          يسعدهما ويشرفهما أن يدعوا حضرتكم الكريمة لمشاركتهما فرحة حفل خطوبتهما
+        </p>
+
+        <!-- تاريخ وتوقيت المناسبة -->
+        <div class="date-badge">
+          وذلك بمشيئة اللّٰه تعالى<br>
+          <strong>يوم الأحد 15 نوفمبر 2026</strong><br>
+          على الساعة السادسة مساءً
         </div>
 
-        <div class="detail-item">
-          <span>⏰ الوقت</span>
-          <strong>الساعة 6:00 مساءً</strong>
+        <!-- قاعة الحفل -->
+        <div class="venue-name">
+          بقاعة قاعة النموذج
         </div>
 
-        <div class="detail-item">
-          <span>📍 قاعة الاحتفال</span>
-          <strong>قاعة الميريديان للمناسبات الملكية</strong>
-        </div>
-
-        <!-- زر الانتقال إلى خرائط جوجل -->
-        <a href="https://maps.google.com" target="_blank" class="btn-action">
-          📍 فتح موقع القاعة في Google Maps
+        <!-- زر الانتقال للخريطة -->
+        <a href="https://maps.google.com" target="_blank" class="maps-btn">
+          📍 موقع القاعة على Google Maps
         </a>
-      </div>
 
-      <!-- استمارة تأكيد الحضور (RSVP) -->
-      <div class="rsvp-box">
-        <h3>تأكيد الحضور (RSVP)</h3>
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">يسعدنا تأكيد حضوركم لمشاركتنا فرحتنا</p>
-        <form id="rsvpForm">
-          <input type="text" id="guestName" placeholder="الاسم الكريم" required />
-          <select id="guestCount">
-            <option value="1">حضور شخص واحد</option>
-            <option value="2">حضور شخصين</option>
-            <option value="3">عائلة (3 أشخاص فأكثر)</option>
-          </select>
-          <button type="submit" class="btn-action">تأكيد الحضور ✨</button>
-        </form>
-        <div id="rsvpSuccess" style="display:none; color: #2e7d32; font-weight: bold; margin-top: 15px;">
-          تم تسجيل تأكيد حضوركم بنجاح، أهلاً وسهلاً بكم! ❤️
+        <!-- العداد التنازلي للخطوبة -->
+        <div class="timer-container">
+          <div class="timer-header">متبقي على موعد الحفل</div>
+          <div class="timer-grid">
+            <div class="time-unit">
+              <span class="unit-value" id="days">00</span>
+              <span class="unit-text">أيام</span>
+            </div>
+            <div class="time-unit">
+              <span class="unit-value" id="hours">00</span>
+              <span class="unit-text">ساعات</span>
+            </div>
+            <div class="time-unit">
+              <span class="unit-value" id="minutes">00</span>
+              <span class="unit-text">دقائق</span>
+            </div>
+            <div class="time-unit">
+              <span class="unit-value" id="seconds">00</span>
+              <span class="unit-text">ثواني</span>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="footer-quote">With Love, Hussein & Jana</div>
+        <!-- أسماء العروسين في الأسفل -->
+        <div class="names-footer">
+          <div class="person-block">
+            <div class="person-name">يوسف</div>
+            <div class="person-role">العريس</div>
+          </div>
+          <div class="ampersand">&</div>
+          <div class="person-block">
+            <div class="person-name">أميرة</div>
+            <div class="person-role">العروس</div>
+          </div>
+        </div>
+
+      </div>
     </div>
+
   </div>
 
   <script>
-    // --- 1. تفاعلية فتح الظرف وتأثير الاحتفال ---
-    const envelopeTrigger = document.getElementById('envelopeTrigger');
     const envelopeScreen = document.getElementById('envelopeScreen');
-    const weddingDetails = document.getElementById('weddingDetails');
-    const audio = document.getElementById('weddingMusic');
-    const audioBtn = document.getElementById('audioBtn');
+    const detailsScreen = document.getElementById('detailsScreen');
+    const audio = document.getElementById('engagementMusic');
+    const audioToggle = document.getElementById('audioToggle');
     let isPlaying = false;
 
-    envelopeTrigger.addEventListener('click', function() {
-      // فتح الغطاء
-      envelopeTrigger.classList.add('opened');
+    // تفاعل فتح الظرف
+    envelopeScreen.addEventListener('click', () => {
+      envelopeScreen.classList.add('opened');
 
-      // إطلاق قصاصات الاحتفال
+      // إطلاق قصاصات الاحتفال المذهبة
       if (typeof confetti === 'function') {
         confetti({
-          particleCount: 100,
-          spread: 70,
-          origin: { y: 0.6 }
+          particleCount: 110,
+          spread: 75,
+          origin: { y: 0.55 },
+          colors: ['#e5c07b', '#ffffff', '#7a1f28']
         });
       }
 
-      // تشغيل الموسيقى تلقائياً عند أول لمسة للمستخدم
-      playAudio();
+      // تشغيل ملف music.mp3 تلقائياً عند النقر
+      startMusic();
 
-      // إخفاء شاشة الظرف وعرض الدعوة
+      // الانتقال السلس لشاشة التفاصيل
       setTimeout(() => {
         envelopeScreen.style.display = 'none';
-        weddingDetails.classList.add('visible');
+        detailsScreen.classList.add('visible');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 700);
+      }, 750);
     });
 
-    // --- 2. التحكم بالموسيقى ---
-    function playAudio() {
+    // التحكم بالموسيقى
+    function startMusic() {
       audio.play().then(() => {
         isPlaying = true;
-        audioBtn.classList.add('playing');
-        audioBtn.innerHTML = '🔊';
+        audioToggle.classList.add('rotating');
+        audioToggle.innerHTML = '🔊';
       }).catch(err => {
-        console.log("Audio autoplay prevented: ", err);
+        console.log("Audio play blocked by browser policy:", err);
       });
     }
 
-    audioBtn.addEventListener('click', () => {
+    audioToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       if (isPlaying) {
         audio.pause();
-        audioBtn.classList.remove('playing');
-        audioBtn.innerHTML = '🔈';
+        audioToggle.classList.remove('rotating');
+        audioToggle.innerHTML = '🔈';
       } else {
         audio.play();
-        audioBtn.classList.add('playing');
-        audioBtn.innerHTML = '🔊';
+        audioToggle.classList.add('rotating');
+        audioToggle.innerHTML = '🔊';
       }
       isPlaying = !isPlaying;
     });
 
-    // --- 3. تشغيل العد التنازلي التفاعلي ---
-    // يمكنك تعديل التاريخ المستهدف ليكون تاريخ زفاف العميل
-    const weddingDate = new Date("October 16, 2026 18:00:00").getTime();
+    // العداد التنازلي التفاعلي الموجه إلى تاريخ 15 نوفمبر 2026
+    const targetEventDate = new Date("November 15, 2026 18:00:00").getTime();
 
-    function updateCountdown() {
+    function refreshTimer() {
       const now = new Date().getTime();
-      const difference = weddingDate - now;
+      const diff = targetEventDate - now;
 
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+      if (diff > 0) {
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((diff % (1000 * 60)) / 1000);
 
-        document.getElementById('days').innerText = String(days).padStart(2, '0');
-        document.getElementById('hours').innerText = String(hours).padStart(2, '0');
-        document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
-        document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        document.getElementById('days').innerText = String(d).padStart(2, '0');
+        document.getElementById('hours').innerText = String(h).padStart(2, '0');
+        document.getElementById('minutes').innerText = String(m).padStart(2, '0');
+        document.getElementById('seconds').innerText = String(s).padStart(2, '0');
       } else {
         document.getElementById('days').innerText = '00';
         document.getElementById('hours').innerText = '00';
@@ -593,15 +568,8 @@
         document.getElementById('seconds').innerText = '00';
       }
     }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-
-    // --- 4. تأكيد الحضور RSVP ---
-    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      this.style.display = 'none';
-      document.getElementById('rsvpSuccess').style.display = 'block';
-    });
+    setInterval(refreshTimer, 1000);
+    refreshTimer();
   </script>
 </body>
 </html>
